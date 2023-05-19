@@ -10,6 +10,8 @@ function background(){
      * alterar o background do body para a cor #BECCC3.
      */
 
+    let bg = document.body.style;
+    bg.backgroundColor = "#BECCC3";
 }
 
 /**
@@ -17,6 +19,8 @@ function background(){
  * e apresente o nome e o sobrenome de uma pessoa (separado por um espaço)
  * na div id='result'
  */
+    
+
 function show(){
 
      /**
@@ -25,6 +29,18 @@ function show(){
       * Recupera os valores dos campos de texto cujo o id='fname' e id='lname' e apresente o nome
       * e o sobrenome de uma pessoa (separado por um espaço) na div id='result'
       */
+     var fname = document.getElementById("fname");
+     var lname = document.getElementById("lname");
+     var fname = fname.value;
+     var lname = lname.value;
+ 
+     console.log(fname);
+     console.log(lname);
+     
+     let result = document.getElementById("result");
+
+     result.textContent = fname + " " + lname;
+
 }
 
 /**
@@ -51,6 +67,30 @@ function search(){
      *
      * Além disso, a função removeAllChildren abaixo também pode ser útil para o desenvolvimento da solução
      */
+    
+        let input = document.getElementById("name").value.toUpperCase();
+        let search = document.getElementById("search");
+        let i = input.length;
+        var parcial;
+        parcial = input.substr(0, i).toUpperCase();
+        let sugestao = [];
+
+        
+        data.forEach(e => {
+            
+            let nome = e.name.toUpperCase();
+            let sub = nome.substr(0, i).toUpperCase();
+            if(sub.includes(parcial)){
+                sugestao.push(e.name);
+            }
+        });
+        search.textContent = sugestao;
+        console.log(parcial + " " + input);
+
+        if(i == 0) removeAllChildren(search);
+
+
+
 
 }
 
